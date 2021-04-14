@@ -1,17 +1,17 @@
 namespace TaskMaster.Models
 {
-    public class Task
+    public class Todo
     {
         internal int id;
-        internal string taskId;
+        internal string todoId;
 
-        public Task(string name)
+        public Todo(string name)
         {
             Name = name;
 
         }
 
-        public Task()
+        public Todo()
         {
 
         }

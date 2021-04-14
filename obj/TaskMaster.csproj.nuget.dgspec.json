@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[2.0.78, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
             "MySqlConnector": {
               "target": "Package",
               "version": "[1.3.3, )"

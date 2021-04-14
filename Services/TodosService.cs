@@ -5,53 +5,53 @@ using TaskMaster.Repositories;
 
 namespace TaskMaster.Services
 {
-    public class TasksService
+    public class TodosService
     {
-        private readonly TasksRepository _repo;
+        private readonly TodosRepository _repo;
 
-        public TasksService(TasksRepository repo)
+        public TodosService(TodosRepository repo)
         {
             _repo = repo;
         }
         //GET ALL ************************************
-        public IEnumerable<Task> Get()
+        public IEnumerable<Todo> Get()
         {
             return _repo.Get();
         }
 
         //GET ONE **********************************
-        internal Task GetById(string id)
+        internal Todo GetById(string id)
         {
-            Task tasks = _repo.Get(id);
-            if (tasks == null)
+            Todo todos = _repo.Get(id);
+            if (todos == null)
             {
                 throw new Exception("invalid id");
             }
-            return tasks;
+            return todos;
         }
 
 
         //CREATE******************************
-        internal Task Create(Task newTasks)
+        internal Todo Create(Todo newTodos)
         {
-            return _repo.Create(newTasks);
+            return _repo.Create(newTodos);
         }
 
         //EDIT**********************************
-        internal Task Edit(Task editTasks)
+        internal Todo Edit(Todo editTodos)
         {
-            Task original = GetById(editTasks.taskId);
+            Todo original = GetById(editTodos.todoId);
 
-            original.Name = editTasks.Name != null ? editTasks.Name : original.Name;
+            original.Name = editTodos.Name != null ? editTodos.Name : original.Name;
 
 
             return _repo.Edit(original);
         }
 
         //DELETE***********************************
-        internal Task Delete(string id)
+        internal Todo Delete(string id)
         {
-            Task original = GetById(id);
+            Todo original = GetById(id);
             _repo.Delete(id);
             return original; ;
         }

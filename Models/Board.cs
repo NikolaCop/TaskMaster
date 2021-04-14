@@ -1,17 +1,17 @@
 namespace TaskMaster.Models
 {
-    public class List
+    public class Board
     {
         internal int id;
-        internal string listId;
+        internal string boardId;
 
-        public List(string name)
+        public Board(string name)
         {
             Name = name;
 
         }
 
-        public List()
+        public Board()
         {
 
         }

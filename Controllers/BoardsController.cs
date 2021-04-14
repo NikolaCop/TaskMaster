@@ -8,12 +8,12 @@ namespace TaskMaster.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TasksController : ControllerBase
+    public class BoardsController : ControllerBase
     {
-        private readonly TasksService _service;
+        private readonly BoardsService _service;
 
 
-        public TasksController(TasksService service)
+        public BoardsController(BoardsService service)
         {
             _service = service;
         }
@@ -21,7 +21,7 @@ namespace TaskMaster.Controllers
 
         //GET ALL
         [HttpGet]
-        public ActionResult<IEnumerable<Task>> Get()
+        public ActionResult<IEnumerable<Board>> Get()
         {
             try
             {
@@ -34,12 +34,12 @@ namespace TaskMaster.Controllers
         }
 
         //GET ONE BY ID
-        [HttpGet("{tasksId}")]
-        public ActionResult<Task> GetById(string tasksId)
+        [HttpGet("{boardsId}")]
+        public ActionResult<Board> GetById(string boardsId)
         {
             try
             {
-                return Ok(_service.GetById(tasksId));
+                return Ok(_service.GetById(boardsId));
             }
             catch (System.Exception err)
             {
@@ -48,13 +48,13 @@ namespace TaskMaster.Controllers
         }
 
         //EDIT
-        [HttpPut("{tasksId}")]
-        public ActionResult<Task> editTasks(string taskId, Task editTasks)
+        [HttpPut("{boardsId}")]
+        public ActionResult<Board> editBoards(string boardId, Board editBoards)
         {
             try
             {
-                editTasks.taskId = taskId;
-                return Ok(_service.Edit(editTasks));
+                editBoards.boardId = boardId;
+                return Ok(_service.Edit(editBoards));
 
             }
             catch (System.Exception err)
@@ -65,11 +65,11 @@ namespace TaskMaster.Controllers
 
         //CREATE
         [HttpPost]
-        public ActionResult<Task> Create([FromBody] Task newTasks)
+        public ActionResult<Board> Create([FromBody] Board newBoards)
         {
             try
             {
-                return Ok(_service.Create(newTasks));
+                return Ok(_service.Create(newBoards));
             }
             catch (System.Exception err)
             {
@@ -79,7 +79,7 @@ namespace TaskMaster.Controllers
 
         //DELETE
         [HttpDelete("{id}")]
-        public ActionResult<string> DeleteTasks(string id)
+        public ActionResult<string> DeleteBoards(string id)
         {
             try
             {

@@ -8,12 +8,12 @@ namespace TaskMaster.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ListsController : ControllerBase
+    public class TodosController : ControllerBase
     {
-        private readonly ListsService _service;
+        private readonly TodosService _service;
 
 
-        public ListsController(ListsService service)
+        public TodosController(TodosService service)
         {
             _service = service;
         }
@@ -21,7 +21,7 @@ namespace TaskMaster.Controllers
 
         //GET ALL
         [HttpGet]
-        public ActionResult<IEnumerable<List>> Get()
+        public ActionResult<IEnumerable<Todo>> Get()
         {
             try
             {
@@ -34,12 +34,12 @@ namespace TaskMaster.Controllers
         }
 
         //GET ONE BY ID
-        [HttpGet("{listsId}")]
-        public ActionResult<List> GetById(string listsId)
+        [HttpGet("{todosId}")]
+        public ActionResult<Todo> GetById(string todosId)
         {
             try
             {
-                return Ok(_service.GetById(listsId));
+                return Ok(_service.GetById(todosId));
             }
             catch (System.Exception err)
             {
@@ -48,13 +48,13 @@ namespace TaskMaster.Controllers
         }
 
         //EDIT
-        [HttpPut("{listsId}")]
-        public ActionResult<List> editLists(string listId, List editLists)
+        [HttpPut("{todosId}")]
+        public ActionResult<Todo> editTodos(string todoId, Todo editTodos)
         {
             try
             {
-                editLists.listId = listId;
-                return Ok(_service.Edit(editLists));
+                editTodos.todoId = todoId;
+                return Ok(_service.Edit(editTodos));
 
             }
             catch (System.Exception err)
@@ -65,11 +65,11 @@ namespace TaskMaster.Controllers
 
         //CREATE
         [HttpPost]
-        public ActionResult<List> Create([FromBody] List newLists)
+        public ActionResult<Todo> Create([FromBody] Todo newTodos)
         {
             try
             {
-                return Ok(_service.Create(newLists));
+                return Ok(_service.Create(newTodos));
             }
             catch (System.Exception err)
             {
@@ -79,7 +79,7 @@ namespace TaskMaster.Controllers
 
         //DELETE
         [HttpDelete("{id}")]
-        public ActionResult<string> DeleteLists(string id)
+        public ActionResult<string> DeleteTodos(string id)
         {
             try
             {

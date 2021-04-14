@@ -7,5 +7,6 @@
     <PackageReference Include="Dapper" Version="2.0.78"/>
     <PackageReference Include="CodeWorks.Auth0Provider" Version="1.0.3"/>
     <PackageReference Include="MySqlConnector" Version="1.3.3"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.5"/>
   </ItemGroup>
 </Project>
