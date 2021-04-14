@@ -19,8 +19,8 @@ namespace TaskMaster.Controllers
         }
 
 
-
-        [HttpGet] //Get
+        //GET ALL
+        [HttpGet]
         public ActionResult<IEnumerable<List>> Get()
         {
             try
@@ -33,7 +33,8 @@ namespace TaskMaster.Controllers
             }
         }
 
-        [HttpGet("{listsId}")] //Get By ID
+        //GET ONE BY ID
+        [HttpGet("{listsId}")]
         public ActionResult<List> GetById(string listsId)
         {
             try
@@ -46,7 +47,8 @@ namespace TaskMaster.Controllers
             }
         }
 
-        [HttpPut("{listsId}")] //EDIT
+        //EDIT
+        [HttpPut("{listsId}")]
         public ActionResult<List> editLists(string listId, List editLists)
         {
             try
@@ -61,8 +63,8 @@ namespace TaskMaster.Controllers
             }
         }
 
-
-        [HttpPost] //Create
+        //CREATE
+        [HttpPost]
         public ActionResult<List> Create([FromBody] List newLists)
         {
             try
@@ -75,7 +77,8 @@ namespace TaskMaster.Controllers
             }
         }
 
-        [HttpDelete("{id}")] //Delort
+        //DELETE
+        [HttpDelete("{id}")]
         public ActionResult<string> DeleteLists(string id)
         {
             try

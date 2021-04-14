@@ -14,19 +14,22 @@ namespace TaskMaster.Repositories
             _db = db;
         }
 
-        public IEnumerable<Task> Get()               //GET
+        //GET ALL****************
+        public IEnumerable<Task> Get()
         {
             string sql = "SELECT * FROM tasks;";
             return _db.Query<Task>(sql);
         }
 
-        internal Task Get(string Id)                 //GET WITH ID
+        //GET ONE WITH ID**************
+        internal Task Get(string Id)
         {
             string sql = "SELECT * FROM taskss WHERE id = @Id;";
             return _db.QueryFirstOrDefault<Task>(sql, new { Id });
         }
 
-        internal Task Create(Task newTask)             //POST
+        //CREATE***************
+        internal Task Create(Task newTask)
         {
             string sql = @"
       INSERT INTO taskss
@@ -39,7 +42,8 @@ namespace TaskMaster.Repositories
             return newTask;
         }
 
-        internal Task Edit(Task tasksToEdit)          //EDIT
+        //EDIT********************
+        internal Task Edit(Task tasksToEdit)
         {
             string sql = @"
       UPDATE taskss
@@ -51,7 +55,8 @@ namespace TaskMaster.Repositories
 
         }
 
-        internal void Delete(string id)            //DELORT
+        //DELETE***********************
+        internal void Delete(string id)
         {
             string sql = "DELETE FROM tasks WHERE id = @id LIMIT 1;";
             _db.Execute(sql, new { id });
