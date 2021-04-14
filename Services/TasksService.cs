@@ -13,13 +13,13 @@ namespace TaskMaster.Services
         {
             _repo = repo;
         }
-        //GET
+        //GET ALL ************************************
         public IEnumerable<Task> Get()
         {
             return _repo.Get();
         }
 
-        //GET
+        //GET ONE **********************************
         internal Task GetById(string id)
         {
             Task tasks = _repo.Get(id);
@@ -31,13 +31,13 @@ namespace TaskMaster.Services
         }
 
 
-        //CREATE/POST
+        //CREATE******************************
         internal Task Create(Task newTasks)
         {
             return _repo.Create(newTasks);
         }
 
-        //EDIT/PUT
+        //EDIT**********************************
         internal Task Edit(Task editTasks)
         {
             Task original = GetById(editTasks.taskId);
@@ -48,7 +48,7 @@ namespace TaskMaster.Services
             return _repo.Edit(original);
         }
 
-        //DELORT
+        //DELETE***********************************
         internal Task Delete(string id)
         {
             Task original = GetById(id);
